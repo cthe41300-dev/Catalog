@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catalog</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f6f9;
+  }
+
+  /* Bara de sus */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #111;
+    color: white;
+    padding: 10px 16px;
+  }
+  header img {
+    width: 50px;
+    height: 50px;
+    /* Optional: Added border-radius to make it circular if needed, but keeping it square for the provided logo */
+  }
+  header h1 {
+    margin: 0;
+    font-size: 20px;
+  }
+
+  /* Meniu burger */
+  .menu-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+  }
+
+  /* Meniul lateral */
+  .side-menu {
+    position: fixed;
+    top: 0;
+    right: -180px;
+    width: 180px;
+    height: 100%;
+    background: #222;
+    transition: right 0.3s;
+    padding-top: 70px;
+    z-index: 1000; /* Added z-index to ensure it is above other content */
+  }
+  .side-menu.active {
+    right: 0;
+  }
+  .side-menu button {
+    width: 100%;
+    padding: 12px;
+    background: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+  }
+  .side-menu button:hover {
+    background: #444;
+  }
+
+  /* Conținut principal */
+  main {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  h2 {
+    color: red;
+    margin-bottom: 20px;
+  }
+
+  /* Materii (accordion) */
+  details {
+    background: #007bff;
+    color: white;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  summary {
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .note {
+    background: white;
+    color: black;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    text-align: left;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    margin: 30px 0;
+  }
+  footer img {
+    width: 120px; /* Kept the larger size for the footer */
+  }
+
+  @media (max-width: 600px) {
+    header h1 { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <img src="logo-CNDV-2019.jpg" alt="Sigla Colegiul Național Dragoș Vodă">
+    <h1>Catalog</h1>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <div class="side-menu" id="sideMenu">
+    <button onclick="showSection('note')">Note</button>
+    <button onclick="showSection('absente')">Absențe</button>
+  </div>
+
+  <main>
+    <section id="noteSection">
+      <h2>Note pentru Țiplea Mariana-Alexandra</h2>
+
+      <details>
+        <summary>Engleză</summary>
+        <div class="note">Nota: 10 — Data: 2025-02-03</div>
+		<div class="note">Nota: 9 — Data: 2025-02-03</div>
+      </details>
+    </section>
+
+    <section id="absenteSection" style="display:none;">
+      <h2>Absențe pentru Țiplea Mariana-Alexandra</h2>
+
+      <details>
+        <summary>Biologie</summary>
+        <div class="note">Data: 03/10 - motivată</div>
+	    <div class="note">Data: 26/09 - motivată</div>
+      </details>
+	  
+      <details>
+        <summary>Chimie</summary>
+        <div class="note">Data: 02/10 - motivată</div>
+	    <div class="note">Data: 25/09 - motivată</div>
+      </details>
+
+      <details>
+        <summary>Cultură și Civilizație Britanică</summary>
+        <div class="note">Data: 01/10 - motivată</div>
+      </details>
+
+      <details>
+        <summary>Educație Fizică</summary>
+        <div class="note">Data: 29/09 - motivată</div>
+      </details>
+	  
+      <details>
+        <summary>Fizică</summary>
+        <div class="note">Data: 02/10 - motivată</div>
+	    <div class="note">Data: 30/09 - motivată</div>
+	    <div class="note">Data: 29/09 - motivată</div>
+	    <div class="note">Data: 25/09 - motivată</div>
+      </details>
+	  
+      <details>
+        <summary>Geografie</summary>
+        <div class="note">Data: 03/10 - motivată</div>
+	    <div class="note">Data: 26/09 - motivată</div>
+      </details>
+	  
+      <details>
+        <summary>Informatică</summary>
+        <div class="note">Data: 24/09 - motivată</div>
+	    <div class="note">Data: 24/09 - motivată</div>
+      </details>
+	  
+      <details>
+        <summary>Istoria Evreilor. Holocaustul</summary>
+        <div class="note">Data: 29/09 - motivată</div>
+      </details>
+	  
+      <details>
+        <summary>Istorie</summary>
+        <div class="note">Data: 29/09 - motivată</div>
+      </details>
+	  
+      <details>
+        <summary>Limba Engleză</summary>
+        <div class="note">Data: 01/10 - motivată</div>
+	    <div class="note">Data: 29/09 - motivată</div>
+	    <div class="note">Data: 17/09 - motivată</div>
+      </details>
+	  
+      <details>
+        <summary>Limba Franceză</summary>
+        <div class="note">Data: 03/10 - motivată</div>
+	    <div class="note">Data: 30/09 - motivată</div>
+	    <div class="note">Data: 26/09 - motivată</div>
+      </details>
+	  
+      <details>
+        <summary>Limba și Literatura Romană</summary>
+        <div class="note">Data: 03/10 - motivată</div>
+	    <div class="note">Data: 30/09 - motivată</div>
+	    <div class="note">Data: 29/09 - motivată</div>
+	    <div class="note">Data: 26/09 - motivată</div>
+      </details>
+	  
+      <details>
+        <summary>Matematică</summary>
+        <div class="note">Data: 02/10 - motivată</div>
+	    <div class="note">Data: 01/10 - motivată</div>
+	    <div class="note">Data: 29/09 - motivată</div>
+	    <div class="note">Data: 24/09 - motivată</div>
+      </details>
+	  
+      <details>
+        <summary>Religie</summary>
+        <div class="note">Data: 03/10 - motivată</div>
+	    <div class="note">Data: 26/09 - motivată</div>
+      </details>
+  </main>
+
+  <footer>
+    <img src="logo-CNDV-2019.jpg" alt="Sigla Colegiul Național Dragoș Vodă">
+  </footer>
+
+<script>
+  const menu = document.getElementById('sideMenu');
+  const noteSection = document.getElementById('noteSection');
+  const absenteSection = document.getElementById('absenteSection');
+
+  function toggleMenu() {
+    menu.classList.toggle('active');
+  }
+
+  function showSection(name) {
+    if (name === 'note') {
+      noteSection.style.display = 'block';
+      absenteSection.style.display = 'none';
+    } else {
+      noteSection.style.display = 'none';
+      absenteSection.style.display = 'block';
+    }
+    toggleMenu();
+  }
+</script>
+</body>
+</html>
